@@ -4,309 +4,314 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-1.12+-red.svg)](https://pytorch.org/)
 
+> **⚠️ Status Proyek**: Dalam tahap pengembangan awal. Penelitian ini masih dalam fase setup dan baseline development.
+
 ## 📋 Deskripsi Proyek
 
-**BERT-IDS** adalah penelitian inovatif yang menerapkan arsitektur Bidirectional Encoder Representations from Transformers (BERT) untuk deteksi intrusi jaringan. Penelitian ini bertujuan untuk mengembangkan sistem deteksi intrusi yang lebih akurat dengan memanfaatkan kemampuan pemahaman konteks bidirectional dari BERT untuk menganalisis pola lalu lintas jaringan.
+**BERT-IDS** adalah penelitian yang bertujuan menerapkan arsitektur Bidirectional Encoder Representations from Transformers (BERT) untuk deteksi intrusi jaringan. Proyek ini masih dalam tahap awal pengembangan dengan fokus pada setup infrastruktur dan implementasi baseline.
 
 ### 🎯 Tujuan Penelitian
 
-- Mengembangkan framework novel untuk menerapkan BERT pada deteksi intrusi jaringan
-- Mencapai akurasi deteksi yang superior dibandingkan metode tradisional
-- Mengurangi tingkat false positive dalam sistem IDS
-- Menganalisis kemampuan BERT dalam mendeteksi serangan zero-day
+- Mengembangkan framework untuk menerapkan BERT pada deteksi intrusi jaringan
+- Membandingkan performa BERT dengan metode tradisional
+- Menganalisis kemampuan BERT dalam mendeteksi berbagai jenis serangan
 - Menyediakan interpretabilitas model melalui attention mechanisms
 
-## 🔬 Metodologi Penelitian
+## 🔬 Metodologi Penelitian (Planned)
 
-### Dataset yang Digunakan
-- **CICIDS2017**: Dataset komprehensif dengan berbagai jenis serangan
-- **NSL-KDD**: Dataset benchmark klasik untuk evaluasi IDS
-- **UNSW-NB15**: Dataset modern dengan serangan kontemporer
-- **CIC-DDoS2019**: Dataset khusus untuk serangan DDoS
+### Dataset yang Akan Digunakan
+- **CICIDS2017**: Dataset utama untuk eksperimen (setup completed)
+- **Baseline Models**: Random Forest (implemented)
 
-### Arsitektur Model
+### Arsitektur Model (Planned)
 ```
 Network Traffic → Tokenization → BERT Encoder → Classification Head → Attack Detection
 ```
 
-### Baseline Comparisons
-- Traditional ML: SVM, Random Forest, Naive Bayes
-- Deep Learning: CNN, LSTM, GRU, Autoencoder
-- Ensemble Methods: XGBoost, AdaBoost
-- Transformer Variants: DistilBERT, RoBERTa
+### Baseline Comparisons (Planned)
+- Traditional ML: Random Forest (✅ implemented), SVM, Naive Bayes
+- Deep Learning: CNN, LSTM, GRU
+- Transformer Variants: BERT, DistilBERT
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Python 3.8+
-- CUDA-capable GPU (recommended)
+- CUDA-capable GPU (recommended for future BERT training)
 - 16GB+ RAM
 
 ### Installation
 
-1. **Clone repository**
+1. **Clone repository** (Repository belum dibuat)
 ```bash
-git clone https://github.com/username/bert-ids.git
-cd bert-ids
+# Repository akan tersedia di:
+# git clone https://github.com/username/bert-ids.git
+# cd bert-ids
 ```
 
-2. **Create virtual environment**
+2. **Create Conda environment** (✅ Completed)
 ```bash
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# atau
-venv\Scripts\activate     # Windows
+# Environment sudah dibuat dengan nama 'bert-ids'
+conda env create -f environment.yml
+conda activate bert-ids
 ```
 
-3. **Install dependencies**
+3. **Install dependencies** (✅ Completed)
 ```bash
-pip install -r requirements.txt
+# Dependencies sudah terinstall dalam environment
+# Lihat environment.yml dan requirements.txt untuk detail
 ```
 
-### Dataset Setup
+### Dataset Setup (⚠️ Manual Download Required)
 
-1. **Download datasets**
+1. **Download CICIDS2017 dataset**
+   - Kunjungi: https://www.unb.ca/cic/datasets/ids-2017.html
+   - Download dataset files
+   - Extract ke direktori: `data/raw/cicids2017/`
+
+2. **Struktur direktori sudah siap** (✅ Completed)
 ```bash
-python scripts/download_datasets.py
+# Direktori sudah dibuat otomatis
+data/raw/cicids2017/README.md  # Berisi instruksi download
 ```
 
-2. **Preprocess data**
-```bash
-python scripts/preprocess_data.py --dataset cicids2017
-```
-
-### Training
-
-```bash
-# Basic training
-python train.py --config configs/bert_base.yaml
-
-# Training dengan custom parameters
-python train.py --config configs/bert_base.yaml --batch_size 32 --learning_rate 2e-5
-```
-
-### Evaluation
+### Current Available Features
 
 ```bash
-# Evaluate model
-python evaluate.py --model_path checkpoints/bert_ids_best.pt --dataset cicids2017
+# Explore data (dengan synthetic data untuk testing)
+jupyter notebook notebooks/01_data_exploration.ipynb
 
-# Generate detailed report
-python evaluate.py --model_path checkpoints/bert_ids_best.pt --dataset cicids2017 --detailed_report
+# Run Random Forest baseline
+jupyter notebook notebooks/02_baseline_random_forest.ipynb
 ```
 
-## 📊 Hasil Eksperimen
+## 📊 Status Eksperimen
 
-### Performance Metrics (Preliminary)
+### ✅ Completed Work
 
-| Model | Dataset | Accuracy | Precision | Recall | F1-Score |
-|-------|---------|----------|-----------|--------|----------|
-| BERT-IDS | CICIDS2017 | 96.8% | 97.2% | 96.5% | 96.8% |
-| Random Forest | CICIDS2017 | 94.2% | 93.8% | 94.6% | 94.2% |
-| LSTM | CICIDS2017 | 95.1% | 94.9% | 95.3% | 95.1% |
+#### 1. Project Setup
+- ✅ Conda environment dengan semua dependencies
+- ✅ Struktur proyek yang terorganisir
+- ✅ Git repository setup (local)
 
-*Note: Hasil ini adalah preliminary dan akan diupdate seiring progress penelitian*
+#### 2. Data Infrastructure
+- ✅ Dataset download script dan instruksi
+- ✅ Data exploration notebook (dengan synthetic data fallback)
+- ✅ Data preprocessing pipeline
 
-## 📁 Struktur Proyek
+#### 3. Baseline Implementation
+- ✅ Random Forest baseline model
+- ✅ Comprehensive evaluation framework
+- ✅ Feature importance analysis
+- ✅ Cross-validation setup
+
+### ⏳ Pending Work
+
+#### Immediate Next Steps
+- 📋 Download actual CICIDS2017 dataset
+- 📋 Run baseline experiments dengan real data
+- 📋 Create GitHub repository
+- 📋 Validate data preprocessing pipeline
+
+#### Future Development
+- 📋 BERT tokenization strategy design
+- 📋 BERT model architecture implementation
+- 📋 Training pipeline development
+- 📋 Comparative analysis framework
+
+### 📈 Current Capabilities
+
+**What's Working Now:**
+- Complete development environment
+- Data exploration with synthetic data
+- Random Forest baseline (ready for real data)
+- Evaluation metrics and visualization
+- Model persistence and results tracking
+
+**What Needs Real Data:**
+- Actual performance metrics
+- Feature importance on real network traffic
+- Class imbalance analysis
+- Attack type distribution analysis
+
+## 📁 Struktur Proyek (Current)
 
 ```
-bert-ids/
-├── README.md
-├── prd.md                    # Research Proposal Document
-├── requirements.txt
-├── setup.py
-├── configs/                  # Configuration files
-│   ├── bert_base.yaml
-│   └── bert_large.yaml
-├── src/                      # Source code
-│   ├── __init__.py
-│   ├── data/                 # Data processing modules
-│   │   ├── __init__.py
-│   │   ├── tokenizer.py
-│   │   └── dataset.py
-│   ├── models/               # Model architectures
-│   │   ├── __init__.py
-│   │   ├── bert_ids.py
-│   │   └── baselines.py
-│   ├── training/             # Training utilities
-│   │   ├── __init__.py
-│   │   ├── trainer.py
-│   │   └── metrics.py
-│   └── utils/                # Utility functions
-│       ├── __init__.py
-│       ├── logger.py
-│       └── visualization.py
-├── scripts/                  # Utility scripts
-│   ├── download_datasets.py
-│   ├── preprocess_data.py
-│   └── run_experiments.py
-├── notebooks/                # Jupyter notebooks
-│   ├── data_exploration.ipynb
-│   ├── model_analysis.ipynb
-│   └── results_visualization.ipynb
-├── tests/                    # Unit tests
-│   ├── __init__.py
-│   ├── test_data.py
-│   └── test_models.py
-├── data/                     # Data directory
-│   ├── raw/
-│   ├── processed/
-│   └── external/
-├── models/                   # Saved models
-│   └── checkpoints/
-├── results/                  # Experiment results
-│   ├── logs/
-│   ├── figures/
-│   └── reports/
-└── docs/                     # Documentation
-    ├── api.md
-    ├── datasets.md
-    └── experiments.md
+BERT-IDS/
+├── README.md                 # Project documentation
+├── prd.md                   # Research Proposal Document
+├── requirements.txt         # Python dependencies
+├── environment.yml          # Conda environment specification
+├── .gitignore              # Git ignore rules
+├── configs/                # Configuration files (to be created)
+├── src/                    # Source code packages
+│   ├── __init__.py         # ✅ Created
+│   ├── data/               # Data processing modules
+│   │   └── __init__.py     # ✅ Created
+│   ├── models/             # Model architectures
+│   │   └── __init__.py     # ✅ Created
+│   ├── training/           # Training utilities
+│   │   └── __init__.py     # ✅ Created
+│   └── utils/              # Utility functions
+│       └── __init__.py     # ✅ Created
+├── scripts/                # Utility scripts
+│   └── download_datasets.py # ✅ Dataset download utility
+├── notebooks/              # Jupyter notebooks
+│   ├── 01_data_exploration.ipynb      # ✅ Data exploration
+│   └── 02_baseline_random_forest.ipynb # ✅ Random Forest baseline
+├── tests/                  # Unit tests (to be implemented)
+├── data/                   # Data directory
+│   ├── raw/                # Raw datasets
+│   │   └── cicids2017/     # ✅ Directory structure ready
+│   ├── processed/          # Processed datasets
+│   └── external/           # External datasets
+├── models/                 # Saved models
+│   └── checkpoints/        # Model checkpoints
+├── results/                # Experiment results
+│   ├── logs/               # Training logs
+│   ├── figures/            # Generated plots
+│   └── reports/            # Analysis reports
+└── docs/                   # Documentation
+    └── project_progress.md # ✅ Comprehensive progress documentation
 ```
 
-## 🔧 Configuration
+### 📋 File Status Legend
+- ✅ **Created and Ready**: File/directory exists and functional
+- 📁 **Directory Ready**: Structure created, awaiting content
+- 📋 **Planned**: To be implemented in future phases
+## 🔧 Development Environment
 
-### Model Configuration (configs/bert_base.yaml)
-```yaml
-model:
-  name: "bert-base-uncased"
-  num_labels: 8
-  dropout: 0.1
-  
-training:
-  batch_size: 32
-  learning_rate: 2e-5
-  num_epochs: 10
-  warmup_steps: 1000
-  
-data:
-  max_sequence_length: 512
-  tokenization_strategy: "flow_based"
-```
+### Current Setup (✅ Completed)
+- **Python**: 3.8
+- **Environment Manager**: Conda (`bert-ids` environment)
+- **Main Libraries**: 
+  - PyTorch 1.12+
+  - scikit-learn
+  - transformers (Hugging Face)
+  - pandas, numpy
+  - matplotlib, seaborn, plotly
+  - jupyter
 
-## 📈 Monitoring & Logging
-
-Proyek ini menggunakan:
-- **TensorBoard** untuk monitoring training
-- **Weights & Biases** untuk experiment tracking
-- **MLflow** untuk model versioning
-
+### Environment Activation
 ```bash
-# Start TensorBoard
-tensorboard --logdir results/logs
-
-# View W&B dashboard
-wandb login
-python train.py --use_wandb
+conda activate bert-ids
+jupyter notebook  # To run notebooks
 ```
 
-## 🧪 Running Experiments
+## 🧪 Current Experiments
 
-### Experiment Scripts
+### Available Notebooks
 
+#### 1. Data Exploration (`01_data_exploration.ipynb`)
+**Status**: ✅ Ready to run
+- Comprehensive data loading and analysis
+- Feature distribution analysis
+- Class imbalance investigation
+- Data quality assessment
+- Synthetic data generation for testing
+
+#### 2. Random Forest Baseline (`02_baseline_random_forest.ipynb`)
+**Status**: ✅ Ready to run
+- Complete preprocessing pipeline
+- Random Forest model training
+- Cross-validation setup
+- Feature importance analysis
+- Model evaluation metrics
+- Results visualization
+
+### Running Experiments
 ```bash
-# Run full benchmark comparison
-python scripts/run_experiments.py --config configs/benchmark.yaml
+# Activate environment
+conda activate bert-ids
 
-# Run ablation study
-python scripts/run_experiments.py --config configs/ablation.yaml
+# Start Jupyter
+jupyter notebook
 
-# Run interpretability analysis
-python scripts/interpretability_analysis.py --model_path checkpoints/bert_ids_best.pt
-```
-
-### Custom Experiments
-
-```python
-from src.training.trainer import BERTIDSTrainer
-from src.models.bert_ids import BERTIDSModel
-
-# Initialize model and trainer
-model = BERTIDSModel(config)
-trainer = BERTIDSTrainer(model, config)
-
-# Train model
-trainer.train(train_dataloader, val_dataloader)
-
-# Evaluate
-results = trainer.evaluate(test_dataloader)
+# Open and run notebooks:
+# - notebooks/01_data_exploration.ipynb
+# - notebooks/02_baseline_random_forest.ipynb
 ```
 
 ## 📚 Documentation
 
-- [API Documentation](docs/api.md)
-- [Dataset Guide](docs/datasets.md)
-- [Experiment Guide](docs/experiments.md)
-- [Research Proposal](prd.md)
+### Available Documentation
+- **[Project Progress](docs/project_progress.md)** - ✅ Comprehensive progress tracking
+- **[Research Proposal](prd.md)** - ✅ Complete research proposal document
+- **[Dataset Instructions](data/raw/cicids2017/README.md)** - ✅ CICIDS2017 download guide
+
+### Planned Documentation
+- API Documentation (when BERT implementation starts)
+- Dataset Processing Guide (after real data experiments)
+- Model Architecture Guide (future BERT implementation)
+- Experiment Results (after running experiments with real data)
 
 ## 🤝 Contributing
 
-Kami menyambut kontribusi dari komunitas peneliti! Silakan baca [CONTRIBUTING.md](CONTRIBUTING.md) untuk guidelines.
-
-### Development Setup
-
-```bash
-# Install development dependencies
-pip install -r requirements-dev.txt
-
-# Run tests
-pytest tests/
-
-# Code formatting
-black src/
-flake8 src/
-```
+Proyek ini masih dalam tahap pengembangan awal. Kontribusi akan dibuka setelah:
+- ✅ GitHub repository setup
+- ✅ Initial experiments dengan real data
+- ✅ BERT implementation baseline
 
 ## 📄 License
 
-Proyek ini dilisensikan under MIT License - lihat file [LICENSE](LICENSE) untuk detail.
+Proyek ini akan dilisensikan under MIT License.
 
 ## 📞 Contact
 
-- **Peneliti Utama**: [Nama Anda]
-- **Email**: [email@university.edu]
-- **Institusi**: [Nama Universitas]
-- **Lab**: [Nama Lab/Research Group]
+- **Peneliti**: [Nama akan diisi]
+- **Email**: [Email akan diisi]
+- **Institusi**: [Institusi akan diisi]
 
 ## 🙏 Acknowledgments
 
 - Hugging Face untuk library Transformers
 - PyTorch team untuk framework deep learning
-- Penyedia dataset: Canadian Institute for Cybersecurity, UNSW Canberra
-- [Nama Advisor/Supervisor]
-- [Nama Institusi/Lab]
+- Canadian Institute for Cybersecurity untuk CICIDS2017 dataset
+- [Supervisor/Advisor names akan diisi]
 
 ## 📖 Citation
 
-Jika Anda menggunakan kode atau hasil dari penelitian ini, mohon cite:
+*Citation akan tersedia setelah publikasi*
 
 ```bibtex
-@article{bertids2024,
-  title={BERT-IDS: A Novel Approach to Network Intrusion Detection Using Bidirectional Encoder Representations from Transformers},
-  author={[Nama Penulis]},
-  journal={[Target Journal]},
-  year={2024},
-  note={Under Review}
+@misc{bertids2025,
+  title={BERT-IDS: Network Intrusion Detection Using BERT},
+  author={[Author names akan diisi]},
+  year={2025},
+  note={Work in Progress}
 }
 ```
 
-## 🔄 Changelog
+## 🔄 Project Roadmap
 
-### Version 0.1.0 (Current)
-- Initial research framework
-- Basic BERT-IDS implementation
-- Preliminary experiments on CICIDS2017
-- Baseline model comparisons
+### Phase 1: Setup & Baseline (✅ Current)
+- ✅ Environment setup
+- ✅ Data infrastructure
+- ✅ Random Forest baseline
+- 📋 GitHub repository
+- 📋 Real data experiments
 
-### Planned Features
-- [ ] Multi-dataset evaluation
-- [ ] Advanced tokenization strategies
-- [ ] Real-time inference pipeline
-- [ ] Adversarial robustness testing
-- [ ] Federated learning implementation
+### Phase 2: BERT Development (Planned)
+- 📋 Tokenization strategy design
+- 📋 BERT architecture implementation
+- 📋 Training pipeline development
+- 📋 Initial BERT experiments
+
+### Phase 3: Evaluation & Analysis (Future)
+- 📋 Comprehensive model comparison
+- 📋 Performance analysis
+- 📋 Interpretability studies
+- 📋 Scalability testing
+
+### Phase 4: Documentation & Publication (Future)
+- 📋 Complete documentation
+- 📋 Research paper preparation
+- 📋 Code release and maintenance
 
 ---
 
-**Status Penelitian**: 🚧 Dalam Pengembangan
+**Status Penelitian**: 🚧 Phase 1 - Setup & Baseline Development
 
-**Last Updated**: December 2024
+**Last Updated**: January 2025
+
+**Next Milestone**: Complete real data experiments and GitHub repository setup
