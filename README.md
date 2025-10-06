@@ -10,6 +10,9 @@
 
 **BERT-IDS** adalah penelitian yang bertujuan menerapkan arsitektur Bidirectional Encoder Representations from Transformers (BERT) untuk deteksi intrusi jaringan. Proyek ini masih dalam tahap awal pengembangan dengan fokus pada setup infrastruktur dan implementasi baseline.
 
+
+
+
 ### 🎯 Tujuan Penelitian
 
 - Mengembangkan framework untuk menerapkan BERT pada deteksi intrusi jaringan
@@ -24,6 +27,26 @@
 - **Baseline Models**: Random Forest (implemented)
 
 ### Arsitektur Model (Planned)
+
+```mermaid
+graph LR
+    A[Network Traffic Data] --> B[Data Preprocessing]
+    B --> C[Tokenization Strategy]
+    C --> D[BERT Encoder]
+    D --> E[Classification Head]
+    E --> F[Attack Detection]
+    
+    G[CICIDS2017 Dataset] --> B
+    H[Feature Engineering] --> B
+    
+    D --> I[Attention Mechanisms]
+    I --> J[Interpretability Analysis]
+    
+    F --> K[Binary Classification<br/>Normal vs Attack]
+    F --> L[Multi-class Classification<br/>Attack Type Detection]
+```
+
+**Pipeline Flow:**
 ```
 Network Traffic → Tokenization → BERT Encoder → Classification Head → Attack Detection
 ```
@@ -284,11 +307,50 @@ Proyek ini akan dilisensikan under MIT License.
 
 ## 🔄 Project Roadmap
 
+```mermaid
+graph TD
+    A[📋 Project Initialization] --> B[🔧 Environment Setup]
+    B --> C[📊 Data Infrastructure]
+    C --> D[🤖 Baseline Models]
+    D --> E[🧠 BERT Development]
+    E --> F[📈 Evaluation & Analysis]
+    F --> G[📚 Documentation & Publication]
+    
+    subgraph "Phase 1: Setup & Baseline ✅"
+        B1[✅ Conda Environment]
+        B2[✅ Dependencies Installation]
+        B3[✅ Project Structure]
+        C1[✅ CICIDS2017 Infrastructure]
+        C2[✅ Data Exploration Notebook]
+        D1[✅ Random Forest Baseline]
+        D2[📋 Real Data Experiments]
+    end
+    
+    subgraph "Phase 2: BERT Development 📋"
+        E1[📋 Tokenization Strategy]
+        E2[📋 BERT Architecture]
+        E3[📋 Training Pipeline]
+        E4[📋 Initial BERT Experiments]
+    end
+    
+    subgraph "Phase 3: Evaluation 🔮"
+        F1[📋 Model Comparison]
+        F2[📋 Performance Analysis]
+        F3[📋 Interpretability Studies]
+    end
+    
+    subgraph "Phase 4: Publication 🎯"
+        G1[📋 Complete Documentation]
+        G2[📋 Research Paper]
+        G3[📋 Code Release]
+    end
+```
+
 ### Phase 1: Setup & Baseline (✅ Current)
 - ✅ Environment setup
 - ✅ Data infrastructure
 - ✅ Random Forest baseline
-- 📋 GitHub repository
+- ✅ GitHub repository
 - 📋 Real data experiments
 
 ### Phase 2: BERT Development (Planned)
@@ -315,3 +377,7 @@ Proyek ini akan dilisensikan under MIT License.
 **Last Updated**: January 2025
 
 **Next Milestone**: Complete real data experiments and GitHub repository setup
+
+
+
+
