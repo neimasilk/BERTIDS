@@ -128,53 +128,57 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Machine Learning specific
-# Datasets
-data/raw/
-data/processed/
-data/external/
-*.csv
-*.tsv
-*.json
-*.parquet
-*.h5
-*.hdf5
-*.pkl
-*.pickle
+# Machine Learning specific - MODIFIED FOR MULTI-COMPUTER RESEARCH
+# Keep datasets for multi-computer work (only exclude very large raw files)
+data/raw/*.zip
+data/raw/*.tar.gz
+data/raw/*.rar
+data/raw/*.7z
+# Keep processed data and smaller datasets
+# data/processed/ - KEEP THIS
+# data/external/ - KEEP THIS
+# *.csv - KEEP THIS
+# *.tsv - KEEP THIS
+# *.json - KEEP THIS
+# *.parquet - KEEP THIS
+# *.pkl - KEEP THIS
+# *.pickle - KEEP THIS
 
-# Model files
-models/
-checkpoints/
-*.pt
-*.pth
-*.ckpt
-*.h5
-*.hdf5
-*.pb
-*.onnx
-*.tflite
+# Model files - Keep trained models for multi-computer research
+# models/ - KEEP THIS
+# checkpoints/ - KEEP THIS
+# Only exclude very large model files (>100MB)
+# *.pt - KEEP THIS (PyTorch models)
+# *.pth - KEEP THIS (PyTorch models)
+# *.ckpt - KEEP THIS (Checkpoints)
+# *.h5 - KEEP THIS (Keras/HDF5 models)
+# *.hdf5 - KEEP THIS
+# *.pb - KEEP THIS (TensorFlow)
+# *.onnx - KEEP THIS
+# *.tflite - KEEP THIS
 
-# Experiment results
-results/
-logs/
-runs/
-outputs/
+# Experiment results - Keep for research continuity
+# results/ - KEEP THIS
+# logs/ - KEEP THIS
+# runs/ - KEEP THIS
+# outputs/ - KEEP THIS
+# Only exclude cloud-specific experiment tracking
 wandb/
 mlruns/
 .mlflow/
 
-# TensorBoard
-events.out.tfevents.*
+# TensorBoard - Keep local logs
+# events.out.tfevents.* - KEEP THIS
 
-# Weights & Biases
+# Weights & Biases - Exclude cloud sync
 wandb/
 
-# MLflow
+# MLflow - Exclude cloud sync
 mlruns/
 .mlflow/
 
-# Jupyter notebook outputs
-*.ipynb
+# Jupyter notebook outputs - KEEP NOTEBOOKS FOR RESEARCH
+# *.ipynb - KEEP THIS
 
 # IDE specific
 .vscode/
@@ -204,11 +208,20 @@ config/credentials.json
 .env.local
 .env.production
 
-# Large files that shouldn't be in git
-*.zip
-*.tar.gz
-*.rar
-*.7z
+# Large files that shouldn't be in git - MODIFIED FOR RESEARCH
+# Only exclude very large compressed files (>100MB)
+# Keep smaller archives that might contain datasets or models
+# *.zip - KEEP SMALLER ARCHIVES
+# *.tar.gz - KEEP SMALLER ARCHIVES  
+# *.rar - KEEP SMALLER ARCHIVES
+# *.7z - KEEP SMALLER ARCHIVES
+# Exclude only very large files
+*_large.zip
+*_large.tar.gz
+*_large.rar
+*_large.7z
+*.zip.part*
+*.tar.gz.part*
 
 # CUDA cache
 .nv/
@@ -224,8 +237,13 @@ outputs/
 .dvc/
 *.dvc
 
-# Research specific
-papers/
-references/
-literature/
-*.pdf
+# Research specific - MODIFIED FOR MULTI-COMPUTER RESEARCH
+# Keep research materials for reference across computers
+# papers/ - KEEP THIS
+# references/ - KEEP THIS  
+# literature/ - KEEP THIS
+# Only exclude very large PDF collections
+# *.pdf - KEEP INDIVIDUAL PAPERS
+*_collection.pdf
+papers_archive/
+literature_backup/
